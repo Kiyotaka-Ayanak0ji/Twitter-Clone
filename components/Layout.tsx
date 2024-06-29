@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "./layout/Sidebar";
-import FollowBar from "./layout/FollowBar";
+import Sidebar from "./layouts/Sidebar";
+import DarkMode from "./layouts/DarkMode";
 
 interface LayoutProps{
     children: React.ReactNode
@@ -8,12 +8,10 @@ interface LayoutProps{
 
 const Layout:React.FC<LayoutProps> = ({ children }) => {
     return(
-        <div className="h-screen bg-black">
-            <div className="container h-full mx-auto xl:px-30 max-w-6xl">
-                
-                {/* <DarkMode /> */}
-                
-                <div className="grid grid-cols-5 h-full">
+        <div className="h-screen">
+            <div className="mt-20 w-auto h-max mx-auto xl:px-30 max-w-6xl">
+                <DarkMode />
+                <div className="grid grid-cols-4 h-full">
                     <Sidebar/>
                     <div className="
                     col-span-4 
@@ -22,7 +20,6 @@ const Layout:React.FC<LayoutProps> = ({ children }) => {
                     border-neutral-800">
                         { children }
                     </div>
-                    <FollowBar/>
                 </div>
             </div>
         </div>
