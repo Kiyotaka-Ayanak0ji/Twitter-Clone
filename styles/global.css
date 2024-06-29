@@ -9,11 +9,18 @@
 body {
   @apply h-full;
 }
+:root{
+  @apply bg-black text-white;
+}
 
-.dark {
+body{
+  @apply bg-black text-white;
+}
+
+/* .dark {
   @apply bg-black text-white;
 }
 
 .light {
   @apply bg-white text-black;
-}
+} */

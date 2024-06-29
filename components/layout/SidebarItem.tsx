@@ -1,10 +1,14 @@
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useCallback } from 'react'
 import { IconType } from 'react-icons/lib';
+import useLoginModal from '../../hooks/useLoginModal';
+import useCurrentUser from '../../hooks/useCurrentUser';
 
 interface SidebarItemProps {
     label: string;
     icon: IconType;
     href?: string;
+    auth?: boolean;
     onClick?: () => void
 }
 
@@ -12,10 +16,31 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     label,
     href,
     icon: Icon,
-    onClick
+    onClick,
+    auth
 }) => {
+    
+    const router = useRouter();
+    const {data : createUser} = useCurrentUser();
+    
+    const loginModal = useLoginModal();
+    
+    const handleClick = useCallback(() => {
+        if(onClick){
+            return onClick();
+        }
+
+        if(auth && !currentUser){
+            loginModal.onOpen();
+        }
+
+        if(href){
+            router.push(href);
+        }
+    },[router,onClick,href,currentUser,auth,loginModal]);
+
     return (
-        <div className='flex flex-row item-center'>
+        <div onClick={handleClick} className='flex flex-row item-center'>
             <div className='
             relative
             rounded-full
@@ -30,7 +55,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             cursor-pointer
             lg:hidden'
             >
-                <Icon size={26} color='stone-900' />
+                <Icon size={26} color='white' />
             </div>
 
             <div className='
@@ -45,12 +70,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             cursor-pointer
             '
             >
-                <Icon size={24} color='stone-900' />
+                <Icon size={24} color='white' />
 
                 <p className='hidden lg:block text-xl'>
                     {label}
                 </p>
-
             </div>
         </div>
     )
