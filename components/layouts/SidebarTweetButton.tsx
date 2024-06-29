@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router'
-import React from 'react'
+import { useRouter } from 'next/router';
+import React from 'react';
 import { FaFeather } from 'react-icons/fa';
 
 const SidebarTweetButton = () => {
@@ -52,4 +52,4 @@ const SidebarTweetButton = () => {
     )
 }
 
-export default SidebarTweetButton
+export default SidebarTweetButton;

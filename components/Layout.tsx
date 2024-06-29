@@ -10,7 +10,7 @@ const Layout:React.FC<LayoutProps> = ({ children }) => {
     return(
         <div className="h-screen">
             <div className="mt-20 w-auto h-max mx-auto xl:px-30 max-w-6xl">
-                <DarkMode />
+                {/* <DarkMode /> */}
                 <div className="grid grid-cols-4 h-full">
                     <Sidebar/>
                     <div className="
