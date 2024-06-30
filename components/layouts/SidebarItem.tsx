@@ -30,7 +30,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             cursor-pointer
             lg:hidden'
             >
-                <Icon size={26} color='stone-900' />
+                <Icon size={26} href={href} color='stone-900' />
             </div>
 
             <div className='
@@ -45,7 +45,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             cursor-pointer
             '
             >
-                <Icon size={24} color='stone-900' />
+                <Icon size={24} href={href} color='stone-900' />
 
                 <p className='hidden lg:block text-xl'>
                     {label}

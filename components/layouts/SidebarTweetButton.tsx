@@ -17,7 +17,7 @@ const SidebarTweetButton = () => {
                     items-center
                     justify-center
                     p-4
-                    bg-sky-500
+                    hover:bg-sky-500
                     hover:bg-opacity-10
                     transition
                     cursor-pointer'
