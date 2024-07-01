@@ -9,15 +9,15 @@ import { Toaster } from 'react-hot-toast';
 
 export default function App({ Component , pageProps }: AppProps){
     return (
-        <>
+        <div>
             <SessionProvider session={pageProps.session}>
-                <Toaster/>
+                {/* <Toaster/> */}
                 <RegisterModal/>
                 <LoginModal/>
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
             </SessionProvider>
-        </>
+        </div>
     )
 }
