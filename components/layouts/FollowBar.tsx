@@ -10,6 +10,9 @@ const FollowBar = () => {
     return null;
   }
 
+  // const name = localStorage.getItem('name');
+  // const username  = localStorage.getItem('userName');
+  // const email  = localStorage.getItem('userEmail');
 
   return (
     <div className='px-2 py-4 hidden lg:block'>
@@ -18,23 +21,19 @@ const FollowBar = () => {
                 Who to follow
             </h2>
             <div className='flex flex-col gap-5 mt-4'>
-                {users.map((user: Record<string,any>) => (
-                  <div key={user.id} className='flex flex-row gap-2'>
-                    <Avatar userId={user.id}/>
-                    <div className='flex flex-col'></div>
-                      <p 
-                        className='
-                        text-white
-                        font-semibold
-                        text-sm'
-                      >
-                        {user.name}
-                      </p>
-                      <p className='text-neutral-400 text-sm'>
-                        @{user.username}
-                      </p>
+              {users.map((user : Record<string,any>) => (
+                <div key = {user.id} className='flex flex-row  gap-4'>
+                  <Avatar userId = {user.id}/>
+                  <div className='flex flex-col'>
+                    <p className='text-white text-semibold text-sm'>
+                      {user.name}
+                    </p>
+                    <p className='text-neutral-400 text-sm'>
+                      @{user.username}
+                    </p>
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
         </div>
     </div>

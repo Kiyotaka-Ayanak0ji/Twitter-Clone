@@ -11,6 +11,9 @@ export default async function handler(
     }
 
     try{
+        // [userId].ts -> special syntax used
+        // to transfer userId into request.query..
+
         const { userId } = req.query;
         
         if(!userId || typeof userId !== 'string'){
@@ -22,6 +25,8 @@ export default async function handler(
                 id: userId
             }
         });
+        
+        console.log(existingUser);
 
         const followersCount = await prisma.user.count({
             where: {
@@ -31,8 +36,9 @@ export default async function handler(
             }
         });
 
+        //return user and followers...
+        return res.status(200).json({ ...existingUser , followersCount });
 
-        return res.status(200).json({ ...existingUser , followersCount })
     }catch(error){
         console.log(error);
         toast.error('Error fetching current user',{

@@ -32,6 +32,8 @@ const LoginModal = () => {
                 password
             });
 
+            // localStorage.setItem('userEmail',email);
+
             loginModal.onClose();
         } catch (error) {
             console.log(error);

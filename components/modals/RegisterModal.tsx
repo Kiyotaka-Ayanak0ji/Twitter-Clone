@@ -38,7 +38,11 @@ const RegisterModal = () => {
                 password,
                 username,
                 name
-            })
+            });
+
+            localStorage.setItem('userEmail',email);
+            localStorage.setItem("name",name);
+            localStorage.setItem("userName",username);
 
             toast.success("Account created.",{
                 position: "top-right",

@@ -2,15 +2,22 @@ import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
 import { FaFeather} from 'react-icons/fa';
 import useLoginModal from '../../hooks/useLoginModal';
+import useCurrentUser from '../../hooks/useCurrentUser';
 
 const SidebarTweetButton = () => {
     const router = useRouter();
     const loginModal = useLoginModal();
+    
+    //Fetch is current user session is active..
+    const { data: currentUser } = useCurrentUser();
 
     const handleAuth = useCallback(() => {
+        if(currentUser){
+            return null;
+        }
         console.log("Test");
         loginModal.onOpen();
-    },[loginModal]);
+    },[loginModal,currentUser]);
 
     return (
         <div onClick={() => router.push('/')}>
@@ -55,7 +62,7 @@ const SidebarTweetButton = () => {
                         text-[20px]'
                         onClick={() => handleAuth()}>
                             Tweet
-                        </p>
+                    </p>
                 </div>
         </div>
     )
